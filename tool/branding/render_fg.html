@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  svg { display: block; width: 1024px; height: 1024px; }
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1024" height="1024">
+  <defs>
+    <linearGradient id="checkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#EEF2FF"/>
+    </linearGradient>
+    <linearGradient id="orbitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hanya mark (ring + centang + spark), diskalakan 62% ke tengah
+       agar masuk safe-zone ikon adaptif Android -->
+  <g transform="translate(256 256) scale(0.62) translate(-256 -256)">
+    <circle cx="256" cy="256" r="135" fill="none" stroke="url(#orbitGrad)" stroke-width="28" stroke-linecap="round" stroke-dasharray="640 180" transform="rotate(-30 256 256)"/>
+    <path d="M165 264 L232 331 L352 192" fill="none" stroke="url(#checkGrad)" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="355" cy="185" r="14" fill="#38BDF8"/>
+  </g>
+</svg>
+</body>
+</html>

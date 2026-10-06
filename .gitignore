@@ -1,0 +1,29 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Hive database lokal (data pengguna, jangan di-commit)
+*.hive
+*.lock
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Android build
+android/.gradle/
+android/local.properties
+android/key.properties
+*.jks
+*.keystore
+
+# iOS (jika dibuka di Mac)
+ios/Pods/
+ios/.symlinks/
+
+# Generated
+*.g.dart.tmp

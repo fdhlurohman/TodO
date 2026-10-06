@@ -1,0 +1,7 @@
+# Salin file ini menjadi key.properties, lalu isi nilai yang kamu miliki.
+# Jangan commit key.properties atau file keystore.
+applicationId=my.id.fads.todo
+storeFile=app/todo-upload.jks
+storePassword=GANTI_DENGAN_PASSWORD_KEYSTORE
+keyAlias=GANTI_DENGAN_ALIAS
+keyPassword=GANTI_DENGAN_PASSWORD_KEY

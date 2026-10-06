@@ -1,0 +1,87 @@
+name: premium_todo
+description: Aplikasi To-Do List premium dengan fitur lengkap - kategori, prioritas, sub-tugas,
+  pengingat, pengulangan, kalender, pomodoro, analitik, dan tema gelap/terang.
+publish_to: "none"
+version: 1.0.4+5
+
+environment:
+  sdk: ">=3.11.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management - dipilih Provider karena ringan, stabil, dan mudah dipelajari
+  provider: ^6.1.2
+
+  # Penyimpanan lokal offline-first (NoSQL cepat, tanpa boilerplate SQL)
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+  # Notifikasi lokal untuk pengingat deadline & kebiasaan harian/mingguan
+  flutter_local_notifications: ^17.2.2
+  # Mengambil nama zona waktu perangkat agar jadwal notifikasi akurat
+  flutter_timezone: ^5.1.0
+  timezone: ^0.9.3
+
+  # Kalender bulanan interaktif (marker tugas, pilih tanggal)
+  table_calendar: ^3.1.2
+  # Dibutuhkan table_calendar untuk format label bahasa Indonesia
+  intl: ^0.19.0
+
+  # Grafik analitik (donut chart tingkat penyelesaian + bar chart mingguan)
+  fl_chart: ^0.68.0
+
+  # Render logo SVG kustom dari assets
+  flutter_svg: ^2.0.10+1
+  file_picker: ^13.1.0
+  share_plus: ^13.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+  # Generate ikon launcher Android dari assets/logo/app_logo.png
+  flutter_launcher_icons: ^0.14.4
+  # Generate splash screen native dari logo yang sama
+  flutter_native_splash: ^2.4.6
+
+# ============================================================
+# BRANDING - SEMUA PAKAI SATU SUMBER: assets/logo/app_logo.svg
+# (PNG di bawah dirender persis dari SVG tersebut)
+# Regenerate dengan:
+#   dart run flutter_launcher_icons
+#   dart run flutter_native_splash:create
+# ============================================================
+flutter_launcher_icons:
+  image_path: "assets/logo/app_logo.png"
+  android: "ic_launcher"
+  # Latar ikon adaptif = gradasi PERSIS seperti squircle logo in-app,
+  # sehingga home screen & header aplikasi terlihat identik.
+  adaptive_icon_background: "tool/branding/icon_bg.png"
+  adaptive_icon_foreground: "tool/branding/icon_fg.png"
+
+flutter_native_splash:
+  image: "tool/branding/splash.png"
+  color: "#F6F7FB"
+  color_dark: "#0F1220"
+  android_12:
+    # Android 12+ mem-mask lingkaran -> pakai mark saja (sudah ada padding)
+    image: "tool/branding/icon_fg.png"
+    color: "#F6F7FB"
+    color_dark: "#0F1220"
+  fullscreen: false
+
+flutter:
+  uses-material-design: true
+
+  # ============================================================
+  # PATH ASSETS - LOGO APLIKASI
+  # Letakkan file logo Anda di folder berikut:
+  #   assets/logo/app_logo.svg  (logo vektor - direkomendasikan)
+  #   assets/logo/app_logo.png  (logo raster, resolusi tinggi)
+  # Cukup timpa file placeholder, TIDAK perlu mengubah kode apa pun.
+  # ============================================================
+  assets:
+    - assets/logo/
